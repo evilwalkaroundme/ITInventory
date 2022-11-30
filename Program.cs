@@ -14,15 +14,15 @@ namespace ITInventory
         [STAThread]
         static void Main()
         {
-            //
+            //Update information to database every 2Hr.
             var startTimeSpan = TimeSpan.Zero;
-            var periodTimeSpan = TimeSpan.FromHours(5);
+            var periodTimeSpan = TimeSpan.FromMinutes(120);
             var timer = new System.Threading.Timer((e) =>
             {
                 DatabaseProcess dbp = new DatabaseProcess();
                 dbp.UpdateComputerList();
             }, null, startTimeSpan, periodTimeSpan);
-
+            //Update information to database every 2Hr.
 
             Process aProcess = Process.GetCurrentProcess();
             string aProcName = aProcess.ProcessName;
